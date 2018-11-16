@@ -1,3 +1,7 @@
+# My personal scripts
+
 A collection of scripts I personally use.
 
-Feel free to use them!
+I use [FastScripts](https://red-sweater.com/fastscripts/) to execute them.
+
+Feel free to use if you find something useful.
