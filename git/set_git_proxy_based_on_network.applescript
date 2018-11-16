@@ -10,12 +10,20 @@ set networkNameWithProxy to "<SIGNIFICANT_PART_OF_NETWORK_NAME>"
 global proxy
 set proxy to "<YOUR_PROXY_URL>"
 
+global notificationTitle
+set notificationTitle to "Git Proxy"
+global notificationSubTitle
+
 if SSID contains networkNameWithProxy then
+	set notificationSubTitle to "Proxy required in network " & SSID
 	do shell script "git config --global http.proxy " & proxy
-	display notification "Git proxy has been set" with title "Git Proxy"
+	display notification "The git proxy has been set. Ready to go!" with title notificationTitle subtitle notificationSubTitle
 else
+	set notificationSubTitle to "No proxy required in network " & SSID
 	try
 		do shell script "git config --global --unset http.proxy"
+		display notification "The git proxy has been removed. Ready to go!" with title notificationTitle subtitle notificationSubTitle
+	on error
+		display notification "Proxy was not set. You are ready to go!" with title notificationTitle subtitle notificationSubTitle
 	end try
-	display notification "Git proxy has been removed" with title "Git Proxy"
 end if
