@@ -1,6 +1,6 @@
 -- Set your proxy URL here
 global proxy
-set proxy to "165.225.72.41:10127"
+set proxy to "<YOUR_PROXY_URL>"
 
 try
 	-- Check if a proxy is set.
