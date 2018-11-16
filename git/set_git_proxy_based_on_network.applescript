@@ -11,11 +11,9 @@ global proxy
 set proxy to "<YOUR_PROXY_URL>"
 
 if SSID contains networkNameWithProxy then
-	log "set proxy"
 	do shell script "git config --global http.proxy " & proxy
 	display notification "Git proxy has been set" with title "Git Proxy"
 else
-	log "remove proxy"
 	try
 		do shell script "git config --global --unset http.proxy"
 	end try
